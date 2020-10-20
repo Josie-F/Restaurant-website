@@ -1,0 +1,9 @@
+<div> 
+    <h1>Welcome to {{restaurant.name}}</h1>
+    {{#each menus}}
+    <h3>{{this.title}}</h3>
+    {{#each items}}
+    <p>{{this.name}}</p>
+    {{/each}}
+    {{/each}}
+</div>
