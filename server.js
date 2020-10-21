@@ -23,13 +23,13 @@ app.get('/', async (request,response) => {
     response.render('restaurants', {restaurants}
 )
 })
-app.get('/restaurants/:id', async (req, res) => {
-    const restaurant = await Restaurant.findByPk(req.params.id)
+app.get('/restaurants/:name', async (req, res) => {
+    const restaurant = await Restaurant.findOne({ where: { name: req.params.name } })
     const menus = await restaurant.getMenus( {
       include: [{model: Item, as: 'items'}],
         nest: true  
     })
-    console.log("get restaurant with ID:", req.params.id)
+    console.log("get restaurant with name:", req.params.name)
     res.render('restaurantmenus', {restaurant, menus})
 })
 

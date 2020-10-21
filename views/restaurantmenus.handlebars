@@ -1,9 +1,20 @@
-<div> 
-    <h1>Welcome to {{restaurant.name}}</h1>
+<h1>Welcome to {{restaurant.name}}</h1>
+<div class="hero-image" style="background-image: url({{restaurant.image}}); "></div>
+<h1 class="menu-singular">Menus:</h1>
+<section class="menus-section">
     {{#each menus}}
-    <h3>{{this.title}}</h3>
-    {{#each items}}
-    <p>{{this.name}} - £{{this.price}}</p>
+    <article class="container">
+        <h2>{{this.title}}</h2>
+        <dl>
+            {{#each items}}
+            <div>
+                <dt>{{this.name}} </dt>
+                <dd>£{{this.price}}</dd>
+            </div>
+            {{/each}}
+        </dl>
+    </article>
     {{/each}}
-    {{/each}}
-</div>
+</section>
+<button class="back-button" onclick="location.href='/';">Back</button>
+<button class="add-menu" onclick="location.href='/addmenu';">Add Menu</button>
