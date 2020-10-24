@@ -16,20 +16,9 @@
 
 ```javascript
 <button class="open-button" onclick="openForm()">Create a restaurant</button>
-<div class="form-popup" id="myForm">
-  <form action="/" method="POST" class="form-container">
-    <h4>New restaurant</h4>
+            ----
+<button type="button" class="btn cancel" onclick="closeForm()">Close</button>
 
-    <label><b>Name</b></label>
-    <input type="text" placeholder="Restaurant name" name="name" required>
-
-    <label><b>Url</b></label>
-    <input type="url" placeholder="Set image" name="image" required>
-
-    <button type="submit" class="btn">Create</button>
-    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-  </form>
-</div>
 <script>
   function openForm() {
     document.getElementById("myForm").style.display = "block";
