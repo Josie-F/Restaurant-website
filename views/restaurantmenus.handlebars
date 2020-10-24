@@ -1,20 +1,156 @@
+<div class="delete-rest-button">
+    <a class="far fa-trash-alt" href="/restaurants/{{restaurant.name}}/delete"
+        onclick="return confirm('Are you sure you want to delete this?')"></a>
+    <a class="edit-restaurant far fa-edit" onclick="openEditRest()"></a>
+</div>
 <h1>Welcome to {{restaurant.name}}</h1>
 <div class="hero-image" style="background-image: url({{restaurant.image}}); "></div>
 <h1 class="menu-singular">Menus:</h1>
 <section class="menus-section">
     {{#each menus}}
     <article class="container">
-        <h2>{{this.title}}</h2>
+        <p class="edit-and-remove">
+            <a class="far fa-trash-alt" href="/menus/{{this.id}}/delete"
+                onclick="return confirm('Are you sure you want to delete this?')"></a>
+            <a class="far fa-edit" onclick="editMenuName('{{this.title}}')"></a>
+        </p>
+        <h2>{{this.title}} </h2>
         <dl>
             {{#each items}}
             <div>
-                <dt>{{this.name}} </dt>
+                <dt>{{this.name}}
+                    <a class="far fa-trash-alt" href="/items/{{this.id}}/deleteitem"
+                        onclick="return confirm('Are you sure you want to delete this?')"></a>
+                    <a class="far fa-edit"
+                        onclick="editItem('{{this.id}}', '{{../this.title}}', '{{this.name}}', {{this.price}})"></a>
+                </dt>
                 <dd>£{{this.price}}</dd>
             </div>
             {{/each}}
         </dl>
+        <p><a class="far fa-plus-square" onclick="editMenu('{{this.title}}')"></a></p>
     </article>
     {{/each}}
 </section>
 <button class="back-button" onclick="location.href='/';">Back</button>
-<button class="add-menu" onclick="location.href='/addmenu';">Add Menu</button>
+<button class="add-menu" onclick="openMenuForm()">Add Menu</button>
+<section>
+
+    {{!-- Open restaurant --}}
+    <div class="form-popup" id="myForm">
+        <form action="/restaurants/{{restaurant.name}}/newmenu" method="POST" class="form-container">
+            <h4 style="text-align: center;">New Menu</h4>
+
+            <label><b>Name</b></label>
+            <input type="text" placeholder="Menu name" name="title" required>
+            <button type="submit" class="btn">Create</button>
+            <button type="button" class="btn cancel" onclick="closeMenuForm()">Close</button>
+        </form>
+    </div>
+
+    {{!-- Edit restaurant --}}
+    <div class="form-popup" id="myRestEdit">
+        <form action="/restaurants/{{restaurant.name}}" method="POST" class="form-container">
+            <h4 style="text-align: center;">Update restaurant</h4>
+
+            <label><b>Name</b></label>
+            <input type="text" placeholder="Restaurant name" name="name" value="{{restaurant.name}}" required>
+
+            <label><b>Url</b></label>
+            <input type="url" placeholder="Set image" name="image" value="{{restaurant.image}}" required>
+            <div class="add-item">
+                <button type="submit" class="btn">Update</button>
+                <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+            </div>
+        </form>
+    </div>
+
+    {{!-- Add item --}}
+    <div class="form-popup" id="editMenuForm">
+        <form action="/restaurants/{{restaurant.name}}/" id="menuForm" method="POST" class="form-container">
+            <h4 style="text-align: center;">Add an item</h4>
+            <label><b>Item name</b></label>
+            <input type="text" placeholder="Set item name" name="name">
+
+            <label><b>Item price</b></label>
+            <input type="number" placeholder="Set item price" name="price" style="width: 7em">
+            <br>
+            <div class="add-item">
+                <button type="submit" class="btn">Update</button>
+                <button type="button" class="btn cancel" onclick="closeEditMenu()">Close</button>
+            </div>
+        </form>
+    </div>
+
+    {{!-- Edit menu name --}}
+    <div class="form-popup" id="editMenuName">
+        <form action="/restaurants/{{restaurant.name}}/" id="updateName" method="POST" class="form-container">
+            <h4 style="text-align: center;">Update Menu</h4>
+
+            <label><b>Name</b></label>
+            <input type="text" id='menuName' placeholder="Menu name" name="title" value="" required>
+            <div class="add-item">
+                <button type="submit" class="btn">Update</button>
+                <button type="button" class="btn cancel" onclick="editMenuNameClose()">Close</button>
+            </div>
+        </form>
+    </div>
+
+    {{!-- Edit Item  --}}
+    <div class="form-popup" id="editItem">
+        <form action="/restaurants/{{restaurant.name}}/" id="editItemForm" method="POST" class="form-container">
+            <h4 style="text-align: center;">Edit Item</h4>
+            <label><b>Item name</b></label>
+            <input type="text" placeholder="Set item name" name="name" value="" id="Iname">
+
+            <label><b>Item price</b></label>
+            <input type="number" placeholder="Set item price" name="price" value="" id="Iprice">
+            <div class="add-item">
+                <button type="submit" class="btn">Update</button>
+                <button type="button" class="btn cancel" onclick="editItemClose()">Close</button>
+            </div>
+        </form>
+    </div>
+</section>
+
+<script>
+    function openMenuForm() {
+        document.getElementById("myForm").style.display = "block";
+    }
+    function closeMenuForm() {
+        document.getElementById("myForm").style.display = "none";
+    }
+</script>
+<script>
+    function openEditRest() {
+        document.getElementById("myRestEdit").style.display = "block";
+    }
+    function closeForm() {
+        document.getElementById("myRestEdit").style.display = "none";
+    }
+    function editMenu(title) {
+        document.getElementById('menuForm').action = document.getElementById("menuForm").action + title
+
+        document.getElementById('editMenuForm').style.display = "block"
+    }
+    function closeEditMenu() {
+        document.getElementById("editMenuForm").style.display = "none";
+    }
+    function editMenuName(title) {
+        document.getElementById('updateName').action = document.getElementById("updateName").action + title + "/updatemenu"
+        document.getElementById('editMenuName').style.display = "block";
+        document.getElementById('menuName').value = title;
+    }
+    function editMenuNameClose() {
+        document.getElementById('editMenuName').style.display = "none";
+    }
+    function editItem(id, title, name, price) {
+        document.getElementById('editItem').style.display = "block";
+        document.getElementById('editItemForm').action = document.getElementById("editItemForm").action + title + "/" + id + "/updateitem"
+        document.getElementById('Iname').value = name;
+        document.getElementById('Iprice').value = price;
+    }
+    function editItemClose() {
+        document.getElementById('editItem').style.display = "none";
+    }
+</script>
