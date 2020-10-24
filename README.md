@@ -10,7 +10,7 @@
 
 ### In the bottom left page of the restaurant home page there is a button which will prompt a form to create a new restaurant
 ![](https://user-images.githubusercontent.com/72231465/97084164-f9206300-160c-11eb-8ad4-eaee7ba32a3c.png)
-![](https://user-images.githubusercontent.com/72231465/97084163-f7ef3600-160c-11eb-8691-36de2c8d8900.png)
+![](https://user-images.githubusercontent.com/72231465/97084483-4271b200-160f-11eb-870a-1373520ab107.png)
 
 ### This show and close form is done by using the onclick event
 
