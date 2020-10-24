@@ -1,5 +1,45 @@
 # Dynamic Restaurant Website 
 
 ## Home page w/ restaurant cards
+![](https://user-images.githubusercontent.com/72231465/97084049-2c162700-160c-11eb-9ba4-62bb36de90e7.png)
+
 
 ### When hovering over a restaurant card, the name of the menus are displayed
+
+![](https://user-images.githubusercontent.com/72231465/97084063-4819c880-160c-11eb-9e77-b2823354df17.png)
+
+### In the bottom left page of the restaurant home page there is a button which will prompt a form to create a new restaurant
+![](https://user-images.githubusercontent.com/72231465/97084164-f9206300-160c-11eb-8ad4-eaee7ba32a3c.png)
+![](https://user-images.githubusercontent.com/72231465/97084163-f7ef3600-160c-11eb-8691-36de2c8d8900.png)
+
+### This show and close form is done by using the onclick event
+
+```javascript
+<button class="open-button" onclick="openForm()">Create a restaurant</button>
+<div class="form-popup" id="myForm">
+  <form action="/" method="POST" class="form-container">
+    <h4>New restaurant</h4>
+
+    <label><b>Name</b></label>
+    <input type="text" placeholder="Restaurant name" name="name" required>
+
+    <label><b>Url</b></label>
+    <input type="url" placeholder="Set image" name="image" required>
+
+    <button type="submit" class="btn">Create</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </form>
+</div>
+<script>
+  function openForm() {
+    document.getElementById("myForm").style.display = "block";
+  }
+  function closeForm() {
+    document.getElementById("myForm").style.display = "none";
+  }
+</script>
+```
+
+## Individual Restaurant page
+### When you click a card on the main page you are taken to that specific restaurant's page
+![](https://user-images.githubusercontent.com/72231465/97084411-b19ad680-160e-11eb-91c5-1a50fc6811fb.png)
