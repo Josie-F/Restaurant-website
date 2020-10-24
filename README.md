@@ -43,3 +43,18 @@
 ## Individual Restaurant page
 ### When you click a card on the main page you are taken to that specific restaurant's page
 ![](https://user-images.githubusercontent.com/72231465/97084411-b19ad680-160e-11eb-91c5-1a50fc6811fb.png)
+### Here you can edit both the restaurant's name, the menus, add menus and items to the specific menu
+### The forms are all made with the onclick event
+
+
+# Update Menu / New Menu
+![](https://user-images.githubusercontent.com/72231465/97084615-3d613280-1610-11eb-9978-c6ecadc431be.png)
+![](https://user-images.githubusercontent.com/72231465/97084613-3a664200-1610-11eb-8c95-d52728563fd8.png)
+
+# Add Item / Update Item
+![](https://user-images.githubusercontent.com/72231465/97084624-481bc780-1610-11eb-9a05-18bbd9c11c64.png)
+![](https://user-images.githubusercontent.com/72231465/97084621-44884080-1610-11eb-9b40-2fcd10977b58.png)
+
+# Update Restaurant / Delete Restaurant
+![](https://user-images.githubusercontent.com/72231465/97084630-4d791200-1610-11eb-8e58-5ebb2aea93d4.png)
+![](https://user-images.githubusercontent.com/72231465/97084803-50283700-1611-11eb-960d-a87f93f7cdeb.png)
