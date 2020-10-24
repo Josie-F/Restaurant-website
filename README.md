@@ -48,12 +48,12 @@
 
 
 # Update Menu / New Menu
-![](https://user-images.githubusercontent.com/72231465/97084615-3d613280-1610-11eb-9978-c6ecadc431be.png)
-![](https://user-images.githubusercontent.com/72231465/97084613-3a664200-1610-11eb-8c95-d52728563fd8.png)
+![](https://user-images.githubusercontent.com/72231465/97084916-0855df80-1612-11eb-8ff1-5ae75ee89151.png)
+![](https://user-images.githubusercontent.com/72231465/97084938-27547180-1612-11eb-86b3-d4cd3d9c0d6d.png)
 
 # Add Item / Update Item
-![](https://user-images.githubusercontent.com/72231465/97084624-481bc780-1610-11eb-9a05-18bbd9c11c64.png)
-![](https://user-images.githubusercontent.com/72231465/97084621-44884080-1610-11eb-9b40-2fcd10977b58.png)
+![](https://user-images.githubusercontent.com/72231465/97084952-33403380-1612-11eb-9f1a-49c0568a63ff.png)
+![](https://user-images.githubusercontent.com/72231465/97084948-2facac80-1612-11eb-992b-354627003dd3.png)
 
 # Update Restaurant / Delete Restaurant
 ![](https://user-images.githubusercontent.com/72231465/97084630-4d791200-1610-11eb-8e58-5ebb2aea93d4.png)
